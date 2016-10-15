@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string      :last_name
       t.date        :birthdate
       t.string      :code
-      t.references  :user_type_id, index: true
+      t.references  :user_type, index: true
       t.timestamps
     end
   end

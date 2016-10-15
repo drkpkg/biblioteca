@@ -13,12 +13,12 @@
 ActiveRecord::Schema.define(version: 20161015180852) do
 
   create_table "book_tags", force: :cascade do |t|
-    t.integer  "book_id_id"
-    t.integer  "tag_id_id"
+    t.integer  "book_id"
+    t.integer  "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["book_id_id"], name: "index_book_tags_on_book_id_id"
-    t.index ["tag_id_id"], name: "index_book_tags_on_tag_id_id"
+    t.index ["book_id"], name: "index_book_tags_on_book_id"
+    t.index ["tag_id"], name: "index_book_tags_on_tag_id"
   end
 
   create_table "book_types", force: :cascade do |t|
@@ -33,19 +33,19 @@ ActiveRecord::Schema.define(version: 20161015180852) do
     t.string   "isbn"
     t.string   "cover"
     t.integer  "copies"
-    t.integer  "book_type_id_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["book_type_id_id"], name: "index_books_on_book_type_id_id"
+    t.integer  "book_type_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["book_type_id"], name: "index_books_on_book_type_id"
   end
 
   create_table "loan_histories", force: :cascade do |t|
-    t.integer  "user_id_id"
-    t.integer  "book_id_id"
+    t.integer  "user_id"
+    t.integer  "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["book_id_id"], name: "index_loan_histories_on_book_id_id"
-    t.index ["user_id_id"], name: "index_loan_histories_on_user_id_id"
+    t.index ["book_id"], name: "index_loan_histories_on_book_id"
+    t.index ["user_id"], name: "index_loan_histories_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -65,10 +65,10 @@ ActiveRecord::Schema.define(version: 20161015180852) do
     t.string   "last_name"
     t.date     "birthdate"
     t.string   "code"
-    t.integer  "user_type_id_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["user_type_id_id"], name: "index_users_on_user_type_id_id"
+    t.integer  "user_type_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["user_type_id"], name: "index_users_on_user_type_id"
   end
 
 end
