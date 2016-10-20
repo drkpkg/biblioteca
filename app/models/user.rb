@@ -1,5 +1,5 @@
 class User < ApplicationRecord
 
-  has_one :user_type
-
+  belongs_to :user_type
+  has_many :loan_histories
 end

@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20161015180852) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "book_tags", force: :cascade do |t|
     t.integer  "book_id"
     t.integer  "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_book_tags_on_book_id"
-    t.index ["tag_id"], name: "index_book_tags_on_tag_id"
+    t.index ["book_id"], name: "index_book_tags_on_book_id", using: :btree
+    t.index ["tag_id"], name: "index_book_tags_on_tag_id", using: :btree
   end
 
   create_table "book_types", force: :cascade do |t|
@@ -36,7 +39,7 @@ ActiveRecord::Schema.define(version: 20161015180852) do
     t.integer  "book_type_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["book_type_id"], name: "index_books_on_book_type_id"
+    t.index ["book_type_id"], name: "index_books_on_book_type_id", using: :btree
   end
 
   create_table "loan_histories", force: :cascade do |t|
@@ -44,8 +47,8 @@ ActiveRecord::Schema.define(version: 20161015180852) do
     t.integer  "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_loan_histories_on_book_id"
-    t.index ["user_id"], name: "index_loan_histories_on_user_id"
+    t.index ["book_id"], name: "index_loan_histories_on_book_id", using: :btree
+    t.index ["user_id"], name: "index_loan_histories_on_user_id", using: :btree
   end
 
   create_table "tags", force: :cascade do |t|
@@ -68,7 +71,7 @@ ActiveRecord::Schema.define(version: 20161015180852) do
     t.integer  "user_type_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["user_type_id"], name: "index_users_on_user_type_id"
+    t.index ["user_type_id"], name: "index_users_on_user_type_id", using: :btree
   end
 
 end

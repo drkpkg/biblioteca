@@ -1,2 +1,26 @@
-<h1>UserType#list_all</h1>
-<p>Find me in app/views/user_type/list_all.html.erb</p>
+<table class="ui celled table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user_types.each do |user_type| %>
+      <tr>
+        <td><%= user_type.id %></td>
+        <td><%= user_type.description %></td>
+        <td>
+          <div class="ui buttons">
+            <%= button_to modify_user_type_path(user_type.id), method: :delete, remote: true, class:'ui blue icon button' do %>
+              <i class="edit icon"></i>
+            <% end %>
+            <%= button_to delete_user_type_path(user_type.id), method: :delete, remote: true, class:'ui red icon button' do %>
+              <i class="trash icon"></i>
+            <% end %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

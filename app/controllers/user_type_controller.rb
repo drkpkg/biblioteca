@@ -4,6 +4,10 @@ class UserTypeController < ApplicationController
     @user_type = UserType.new
   end
 
+  def modify_user_type
+    @user_type = UserType.find_by(id: params[:id])
+  end
+
   def create_user_type
     @user_type = UserType.new(get_params)
     if @user_type.save
@@ -24,7 +28,7 @@ class UserTypeController < ApplicationController
   end
 
   def delete_user_type
-    @usertype = UserType.find_by(id: params[:id])
+    @usertype = UserType.find_by(id: params[:id]) # SELECT * FROM usertype WHERE id={:id}
     @usertype.delete
     redirect_to list_all_path
   end
