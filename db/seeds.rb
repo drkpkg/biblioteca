@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# encoding: utf-8
+
+require 'digest'
+md5 = Digest::MD5.new
+
+type = UserType.create(description: 'alumno')
+user = User.create(name: 'Cosme',
+                   last_name: 'Fulanito',
+                   birthdate: '10/10/1992',
+                   code: '123456',
+                   password: md5.update('12345'),
+                   user_type_id: UserType.first.id)
+
+puts user.errors.full_messages
