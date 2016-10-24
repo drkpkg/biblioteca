@@ -17,5 +17,15 @@ user = User.create(name: 'Cosme',
                    code: '123456',
                    password: md5.update('12345'),
                    user_type_id: UserType.first.id)
+tipos_de_libros = ["Economía",
+                  "Informática",
+                  "Leyes",
+                  "Turismo",
+                  "Cocina",
+                  "Tesis",
+                  "Horror"]
 
-puts user.errors.full_messages
+tipos_de_libros.each do |tipo|
+  book = BookType.create(description: tipo)
+  puts book.errors.full_messages
+end

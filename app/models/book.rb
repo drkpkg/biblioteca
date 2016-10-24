@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
 
-  has_one :book_type
-  belongs_to :book_tag
+  belongs_to :book_type, optional: true
+  belongs_to :book_tag, optional: true
   has_many :Loan_histories
 end

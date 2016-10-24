@@ -1,0 +1,28 @@
+<%= form_for :book, url: create_book_path, html:{class: 'ui form'} do |f| %>
+  <div class="field">
+    <label for="book_title">Título del libro</label>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <label for="book_description">Descripción</label>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <label for="book_isbn">Código ISBN</label>
+    <%= f.text_field :isbn %>
+  </div>
+  <div class="field">
+    <label for="book_copies">Cantidad de copias disponibles</label>
+    <%= f.text_field :copies %>
+  </div>
+  <div class="field">
+    <label for="book_book_type">Tipo de libro</label>
+    <%= f.select :book_type_id, {},{},{} do %>
+      <%= BookType.all.each do |book_type| %>
+        <option value="<%= book_type.id %>"><%= book_type.description %></option>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= f.submit 'Guardar' %>
+<% end %>
