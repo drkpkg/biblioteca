@@ -1,7 +1,9 @@
 class BookController < ApplicationController
 
+  before_action :verify_user, except:[:list_all]
+
   def list_all
-    @books = Book.all
+    @books = Book.includes(:book_type).all
   end
 
   def new
@@ -43,7 +45,8 @@ class BookController < ApplicationController
                                  :description,
                                  :isbn,
                                  :copies,
-                                 :book_type_id)
+                                 :book_type_id,
+                                 :cover)
   end
 
 end

@@ -34,7 +34,8 @@ ActiveRecord::Schema.define(version: 20161022174623) do
     t.string   "title"
     t.string   "description"
     t.string   "isbn"
-    t.string   "cover"
+    t.string   "cover_uid"
+    t.string   "cover_name"
     t.integer  "copies"
     t.integer  "book_type_id"
     t.datetime "created_at",   null: false

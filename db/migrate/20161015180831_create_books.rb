@@ -4,7 +4,8 @@ class CreateBooks < ActiveRecord::Migration[5.0]
       t.string      :title
       t.string      :description
       t.string      :isbn
-      t.string      :cover
+      t.string      :cover_uid
+      t.string      :cover_name
       t.integer     :copies
       t.references  :book_type, index: true
       t.timestamps

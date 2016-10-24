@@ -7,6 +7,12 @@ Rails.application.routes.draw do
     post 'signout' => 'auth#logout', as: :delete_session
   end
 
+  scope 'student' do
+    get 'books' => 'book#list_all' #Lista de libros
+    get 'history' => 'loan_history#list_all' #historial de prestamos
+    #post 'borrow' => 'book#borrow'
+  end
+
   scope 'user_type' do
     get 'list_all'                => 'user_type#list_all'
     get 'new_user_type'           => 'user_type#new_user_type'
@@ -27,7 +33,7 @@ Rails.application.routes.draw do
   end
 
   scope 'loan_history' do
-    get 'list_all'            => 'loan_history#list_all'
+    get 'list_all'            => 'loan_history#list_all', as: :loan_history_list_all
     post 'create_lhistory'    => 'loan_history#create_lhistory'
   end
 

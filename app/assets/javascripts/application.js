@@ -15,3 +15,10 @@
 //= require turbolinks
 //= require semantic-ui
 //= require_tree .
+
+$(function(){
+  // $('.ui.labeled.icon.sidebar').sidebar('toggle');
+  $('.special.cards .image').dimmer({
+    on: 'hover'
+  });
+});

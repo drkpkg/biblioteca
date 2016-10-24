@@ -1,22 +1,27 @@
-<table class="ui celled table">
-  <thead>
-    <tr>
-      <th>Título</th>
-      <th>Descripción</th>
-      <th>ISBN</th>
-      <th>Cantidad de copias</th>
-      <th>Tipo de libro</th>
-    </tr>
-  </thead>
-  <tbody>
+<div class="row">
+  <div class="ui special cards">
     <% @books.each do |book| %>
-      <tr>
-        <td><%= book.title %></td>
-        <td><%= book.description %></td>
-        <td><%= book.isbn %></td>
-        <td><%= book.copies %></td>
-        <td><%= book.book_type_id %></td>
-      </tr>
+    <div class="card">
+      <div class="blurring dimmable image">
+        <div class="ui dimmer">
+          <div class="content">
+            <div class="center">
+              <div class="ui inverted button">Agregar</div>
+            </div>
+          </div>
+        </div>
+        <div class="image"><%= image_tag book.cover.thumb('290x300#').url if !book.cover.nil? %></div>
+      </div>
+      <div class="content">
+        <div class="header">Título: <%= book.title %></div>
+        <div class="meta">Clasificación: <%= book.book_type.description %></div>
+        <div class="description">Descripción: <%= book.description %></div>
+      </div>
+      <div class="extra content">
+        <span class="right floated">Copias: <%= book.copies %></span>
+        <span>ISBN: <%= book.isbn %></span>
+      </div>
+    </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
