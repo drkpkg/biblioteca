@@ -1,31 +1,39 @@
-<div class="row">
-  <div class="ui special cards">
-    <% @books.each do |book| %>
-    <div class="card">
-      <div class="blurring dimmable image">
-        <div class="ui dimmer">
-          <div class="content">
-            <div class="center">
-              <% if book.copies > 0 %>
-                <div class="ui inverted button">Pedir</div>
-              <% else %>
-                <div class="ui red label">Sin copias</div>
-              <% end %>
+<div class="ui grid">
+  <div class="row">
+    <div class="ui search">
+      <div class="ui icon input">
+        <input class="prompt" placeholder="Buscar libro" type="text">
+        <i class="search icon"></i>
+      </div>
+      <div class="results"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="ui special cards">
+      <% @books.each do |book| %>
+      <div class="card">
+        <div class="blurring dimmable image">
+          <div class="ui dimmer">
+            <div class="content">
+              <div class="center">
+                <div class="ui inverted button">Agregar</div>
+              </div>
             </div>
           </div>
+          <div class="image"><%= image_tag book.cover.thumb('290x300#').url if !book.cover.nil? %></div>
         </div>
-        <div class="image"><%= image_tag book.cover.thumb('290x300#').url if !book.cover.nil? %></div>
+        <div class="content">
+          <div class="header">Título: <%= book.title %></div>
+          <div class="meta">Clasificación: <%= book.book_type.description %></div>
+          <div class="description">Descripción: <%= book.description %></div>
+        </div>
+        <div class="extra content">
+          <span class="right floated">Copias: <%= book.copies %></span>
+          <span>ISBN: <%= book.isbn %></span>
+        </div>
       </div>
-      <div class="content">
-        <div class="header">Título: <%= book.title %></div>
-        <div class="meta">Clasificación: <%= book.book_type.description %></div>
-        <div class="description">Descripción: <%= book.description %></div>
-      </div>
-      <div class="extra content">
-        <span class="right floated">Copias: <%= book.copies %></span>
-        <span>ISBN: <%= book.isbn %></span>
-      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
+
 </div>

@@ -9,8 +9,8 @@ Rails.application.routes.draw do
 
   scope 'student' do
     get 'books' => 'book#list_all' #Lista de libros
-    get 'history' => 'loan_history#list_all' #historial de prestamos
-    #post 'borrow' => 'book#borrow'
+    get 'history' => 'history#list_all' #historial de prestamos
+    post 'borrow' => 'book#borrow'
   end
 
   scope 'user_type' do
@@ -33,8 +33,8 @@ Rails.application.routes.draw do
   end
 
   scope 'loan_history' do
-    get 'list_all'            => 'loan_history#list_all', as: :loan_history_list_all
-    post 'create_lhistory'    => 'loan_history#create_lhistory'
+    get 'list_all'            => 'history#list_all', as: :loan_history_list_all
+    post 'create_lhistory'    => 'history#create_lhistory'
   end
 
   scope 'book' do
