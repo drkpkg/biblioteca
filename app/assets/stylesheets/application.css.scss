@@ -14,5 +14,15 @@
  *= require_self
  *= semantic-ui
  */
- 
+
 @import 'semantic-ui';
+
+.menubar{
+  position: fixed;
+  top:2%;
+  left: auto;
+}
+
+.pusher{
+  margin-left: 80px;
+}

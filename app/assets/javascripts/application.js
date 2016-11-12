@@ -11,14 +11,25 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require semantic-ui
+//= require turbolinks
 //= require_tree .
 
-$(function(){
-  // $('.ui.labeled.icon.sidebar').sidebar('toggle');
+$(document).on('ready',function(){
+  load_configs();
+});
+
+$(document).on('change', function(){
+  load_configs();
+});
+
+function load_configs(){
+  $('.menubar').click(function(){
+    $('.ui.labeled.icon.sidebar').sidebar('toggle');
+  });
   $('.special.cards .image').dimmer({
     on: 'hover'
   });
-});
+}

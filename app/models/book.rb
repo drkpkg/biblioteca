@@ -5,6 +5,6 @@ class Book < ApplicationRecord
   belongs_to :book_tag, optional: true
   has_many :Loan_histories
 
-  validates_uniqueness_of :isbn, message: 'ISBN is unique'
+  validates_uniqueness_of :isbn, message: 'data must be is unique'
 
 end

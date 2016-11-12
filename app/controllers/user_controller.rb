@@ -1,4 +1,7 @@
 class UserController < ApplicationController
+
+  before_action :verify_user
+
   def list_all
   end
 

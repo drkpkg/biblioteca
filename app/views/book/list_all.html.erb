@@ -6,7 +6,11 @@
         <div class="ui dimmer">
           <div class="content">
             <div class="center">
-              <div class="ui inverted button">Agregar</div>
+              <% if book.copies > 0 %>
+                <div class="ui inverted button">Pedir</div>
+              <% else %>
+                <div class="ui red label">Sin copias</div>
+              <% end %>
             </div>
           </div>
         </div>

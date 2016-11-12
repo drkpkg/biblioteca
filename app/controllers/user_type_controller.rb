@@ -1,5 +1,7 @@
 class UserTypeController < ApplicationController
 
+  before_action :verify_user
+
   def new_user_type
     @user_type = UserType.new
   end
