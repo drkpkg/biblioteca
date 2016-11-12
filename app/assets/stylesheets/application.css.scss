@@ -14,5 +14,11 @@
  *= require_self
  *= semantic-ui
  */
- 
+
 @import 'semantic-ui';
+
+
+.content-fixed{
+  padding-left: 100px;
+  padding-top: 10px;
+}
